@@ -1,0 +1,8 @@
+<h1>All recipes</h1>
+{% for recipe in recipe_list %}
+<ul>
+    <li>Title: {{ recipe.title }}</li>
+    <li>Subtitle: {{ recipe.content }}</li>
+    <li>Author: {{ recipe.author }}</li>
+</ul>
+{% endfor %}
