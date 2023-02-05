@@ -1,0 +1,40 @@
+@import "./index.css";
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Стилизуем все контейнеры с именами box */
+[class^="box-"] {
+  background-color: skyblue;
+  justify-items: stretch;
+}
+
+.container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 350px 350px 350px;
+  grid-template-rows: auto;
+  column-gap: 10px;
+  row-gap: 10px;
+  justify-items: left;
+}
+
+#author{
+  justify-content: end;
+  color: grey;
+  text-align: end;
+  font-size: medium;
+  margin-top: 15px;
+}
+
+#author::before {
+  content: "("
+}
+
+#author::after {
+  content: ")"
+}

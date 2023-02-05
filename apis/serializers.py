@@ -5,7 +5,9 @@ class RecipeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipe
         fields = (
+            "id",
             "title",
             "content",
-            "author"
+            "author",
+            "category_of_food_or_drinks"
         )

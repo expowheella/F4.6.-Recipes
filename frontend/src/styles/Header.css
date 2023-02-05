@@ -1,0 +1,16 @@
+@import "./index.css";
+
+
+header {
+    /* margin: 20px; */
+    font-size: 40px;
+    font-family: sans-serif;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 70px;
+    justify-items: center;
+    align-items: center;
+    background-color: darkgrey;
+
+
+}
