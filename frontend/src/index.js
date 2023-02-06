@@ -2,14 +2,37 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './App';
+// import Header from './Header';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import Header from './Header';
+import Recipe from './Recipe';
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <div><App /></div>,
+    children: [
+      {
+        path: "recipe/:Id",
+        element: <Recipe />,
+      },
+    ]
+  },
+  {
+    path: "/about",
+    element: <div><Header /></div>
+  },
+
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-  <BrowserRouter />
-    <App />
+    <RouterProvider router={router} />
+    {/* <Header /> */}
+    <Outlet />
   </React.StrictMode>
 );
 

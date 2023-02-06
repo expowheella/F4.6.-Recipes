@@ -5,9 +5,15 @@ import "./styles/Header.css";
 function Header() {
     return (
         <header>
-            This is header
+            <ul>
+                <li>
+                    {/* <link to="/about">About</link> */}
+                    Header
+                </li>
+            </ul>
         </header>
     )
 }
 
 export default Header
+
