@@ -1,12 +1,20 @@
-import React, { Component } from "react"
+import React, { Component, useState } from "react"
 import Header from "./Header.js";
 import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
 import "./styles/App.css"
 import About from "./About.js";
 import Recipe from "./Recipe.js";
+import FilterCategories from "./Filter/FilterCategories.js";
+
+
+function onFilterValueSelected(filterValue) {
+  console.log(filterValue)
+};
 
 
 class App extends Component {
+
+
   constructor(props) {
     super(props);
     this.state = {
@@ -28,7 +36,6 @@ class App extends Component {
   }
 
 
-
   recipeCategories(arg) {
     switch (arg) {
       case 1:
@@ -48,40 +55,62 @@ class App extends Component {
     }
   };
 
-  renderItems = () => {
-    const newItems = this.state.recipeList;
-
-    function Click(e) {
-
-      console.log(e)
-    }
 
 
-    return newItems.map(item => (
 
-      <div>
-        <div className="box-1" >
-          <Link to={`recipe/${item.id}`} id="title" onClick={(e) => Click(item.id)}>{item.title}</Link>
-          <p id="content">{item.content}</p>
-          <h3 id="author">{item.author}</h3>
-          <p id="cat"> {this.recipeCategories(item.category)} </p>
-        </div>
-      </div>
+  // renderItems = () => {
+  //   const newItems = this.state.recipeList;
 
-    ));
-  };
+  //   // const [newItems, setNewItems] = useState([])
+
+  //   // const setNewItems = () => { Items.filter(category => category.category === 1) }
 
 
+  //   function Click(e) {
+
+  //     console.log(e)
+  //   };
+
+
+  //   return newItems.map(item => (
+
+  //     <div>
+  //       <div className="box-1" >
+  //         <Link to={`recipe/${item.id}`} id="title" onClick={(e) => Click(item.id)}>{item.title}</Link>
+  //         <h3 id="author">{item.author}</h3>
+  //         <p id="cat"> {this.recipeCategories(item.category)} </p>
+
+
+  //       </div>
+  //     </div>
+
+  //   ));
+
+
+  // };
 
   render() {
     return (
       <>
         <Header />
-        <div className="container" key={this.item}>
-          {this.renderItems()}
-        </div>
-        <Outlet />
-
+        {/* <FilterCategories filterValueSelected={onFilterValueSelected} /> */}
+        <ul>
+          <li>
+            <Link to={'recipe/soup'} id="category">Soup</Link>
+          </li>
+          <li>
+            <Link to={'recipe/porridge'} id="category">Porridge</Link>
+          </li>
+          <li>
+            <Link to={'recipe/deserts'} id="category">Deserts</Link>
+          </li>
+          <li>
+            <Link to={'recipe/bewerages'} id="category">Bewerages</Link>
+          </li>
+        </ul>
+        {/* <div className="container" key={this.item}> */}
+        {/* {this.renderItems()} */}
+        {/* </div> */}
       </>
     )
   }

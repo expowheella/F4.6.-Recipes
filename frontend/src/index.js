@@ -7,22 +7,21 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from './Header';
 import Recipe from './Recipe';
+import Soup from './Soup';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <div><App /></div>,
-    children: [
-      {
-        path: "recipe/:Id",
-        element: <Recipe />,
-      },
-    ]
   },
   {
-    path: "/about",
-    element: <div><Header /></div>
+    path: "/recipe/:Id",
+    element: <Recipe />,
+  },
+  {
+    path: "/recipe/soup",
+    element: <Soup />,
   },
 
 ]);
@@ -30,9 +29,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
     {/* <Header /> */}
-    <Outlet />
+    <RouterProvider router={router} />
+    {/* <Outlet /> */}
   </React.StrictMode>
 );
 

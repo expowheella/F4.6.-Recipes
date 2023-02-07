@@ -1,23 +1,18 @@
 
-import React, { useState, useEffect } from 'react';
-import {useParams} from "react-router-dom";
+import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 
 import Header from "./Header.js";
 import "./styles/App.css"
 
 
-function Recipe() {
+function Content() {
 
     const [recipeDetail, setRecipeDetail] = useState([]);
 
-    const recipeId = useParams();
-    console.log(recipeId.Id)
-
-
     useEffect(() => {
         // GET request using axios inside useEffect React hook
-        axios.get(`http://localhost:8000/recipes/${recipeId.Id}/`)
+        axios.get(`http://localhost:8000/recipes/soup/`)
             .then(response => setRecipeDetail(response.data),
             );
 
@@ -26,17 +21,30 @@ function Recipe() {
     }, []);
 
     console.log(recipeDetail)
-    return (
+
+
+
+    return recipeDetail.map(item =>
         <>
-        <Header />
+        
         <div className="box-1" >
-          <h3>{recipeDetail['title']}</h3>
-          <p id="content">{recipeDetail['content']}</p>
-          <h3 id="author">{recipeDetail['author']}</h3>
+          <h3>{item['title']}</h3>
+          <p id="content">{item['content']}</p>
+          <h3 id="author">{item['author']}</h3>
         </div>
         </>
 
     );
 }
 
-export default Recipe;
+
+function Soup(){
+    return(
+        <>
+            <Header />
+            <Content />
+        </>
+    )
+}
+
+export default Soup;
