@@ -17,6 +17,12 @@ class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
 
+
 class RecipeByCategoryDetail(generics.ListAPIView):
-    queryset = Recipe.objects.filter(category__recipe_category = "SOUP")
+    queryset = Recipe.objects.filter(category__recipe_category="SOUP")
+    serializer_class = RecipeSerializer
+
+
+class RecipeByCategoryPorridge(generics.ListAPIView):
+    queryset = Recipe.objects.filter(category__recipe_category="PORRIDGE")
     serializer_class = RecipeSerializer

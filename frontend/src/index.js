@@ -8,6 +8,9 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from './Header';
 import Recipe from './Recipe';
 import Soup from './Soup';
+import Porrige from './Porrige';
+import Swagger from "./Filter/Swagger/Swagger.js";
+
 
 
 const router = createBrowserRouter([
@@ -23,7 +26,14 @@ const router = createBrowserRouter([
     path: "/recipe/soup",
     element: <Soup />,
   },
-
+  {
+    path: "/recipe/porridge",
+    element: <Porrige />,
+  },
+  {
+    path: "/swagger",
+    element: <Swagger />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
